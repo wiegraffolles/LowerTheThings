@@ -43,8 +43,6 @@ def renameLower(x: File): Unit = {
   
   // Create a new File out of the reconstructed path
   val newFile: File = file(splitPath.mkString("/"))
-  println(x.absolutePath)
-  println(newFile.absolutePath)
   
   // Overwrite the file with the new path
   x.renameTo(newFile)
@@ -56,6 +54,8 @@ val fs: Seq[File] = (srcDir * "*").get
 
 // Call recursive function for first time on all files in local directory
 fs.foreach { x => renameRecursive(x) }
+
+println("All files successfully renamed to lower case.")
 
 
 
